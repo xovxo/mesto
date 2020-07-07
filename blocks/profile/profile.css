@@ -1,0 +1,15 @@
+.profile {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 300px) {
+  .profile {
+    width: 282px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .profile {
+    width: 882px;
+  }
+}

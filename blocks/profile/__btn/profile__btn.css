@@ -2,4 +2,7 @@
 @import url(_edit/profile__btn_edit.css);
 
 .profile__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

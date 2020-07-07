@@ -1,0 +1,20 @@
+.profile__btn_add {
+  border: 2px solid #ffffff;
+  border-radius: 2px;
+}
+
+@media screen and (min-width: 300px) {
+  .profile__btn_add {
+    margin-top: 36px;
+    width: 282px;
+    height: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .profile__btn_add {
+    margin-top: 35px;
+    width: 150px;
+    height: 50px;
+  }
+}

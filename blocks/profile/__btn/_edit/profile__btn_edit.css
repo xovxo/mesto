@@ -1,0 +1,17 @@
+.profile__btn_edit {
+  width: 24px;
+  height: 24px;
+  border: 1px solid white;
+}
+
+@media screen and (min-width: 300px) {
+  .profile__btn_edit {
+    margin-left: 5px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .profile__btn_edit {
+    margin-left: 17px;
+  }
+}

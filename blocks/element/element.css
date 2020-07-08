@@ -1,0 +1,14 @@
+@import url(__image/element__image.css);
+@import url(__footer/element__footer.css);
+@import url(__title/element__title.css);
+@import url(__btn/element__btn.css);
+
+.element {
+  width: 282px;
+  margin-right: 18px;
+  margin-top: 20px;
+}
+
+.element:nth-child(3n) {
+  margin-right: 0;
+}

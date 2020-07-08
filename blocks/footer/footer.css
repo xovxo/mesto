@@ -1,1 +1,21 @@
 @import url(__copyright/footer__copyright.css);
+
+.footer {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 300px) {
+  .footer {
+    width: 282px;
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    width: 882px;
+    padding-top: 66px;
+    padding-bottom: 60px;
+  }
+}

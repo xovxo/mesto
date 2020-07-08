@@ -1,0 +1,19 @@
+.elements {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 300px) {
+  .elements {
+    margin-top: 16px;
+    width: 282px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .elements {
+    width: 882px;
+    margin-top: 27px;
+  }
+}

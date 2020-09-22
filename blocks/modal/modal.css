@@ -1,0 +1,20 @@
+@import url(__title/modal__title.css);
+@import url(__form/modal__form.css);
+@import url(__close-btn/modal__close-btn.css);
+@import url(__save-btn/modal__save-btn.css);
+@import url(__name/modal__name.css);
+@import url(__name-border/modal__name-border.css);
+@import url(_is-open/modal_is-open);
+
+.modal {
+  position: fixed;
+  background-color: #00000087;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}

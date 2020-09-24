@@ -3,7 +3,6 @@
 @import url(__close-btn/modal__close-btn.css);
 @import url(__save-btn/modal__save-btn.css);
 @import url(__name/modal__name.css);
-@import url(__name-border/modal__name-border.css);
 
 .modal {
   position: fixed;

@@ -13,7 +13,6 @@
     <div class="index">
       <header class="header">
         <div class="header__logo"></div>
-        <div class="header__line"></div>
       </header>
       <main class="content">
         <section class="profile">
@@ -25,26 +24,52 @@
             />
             <div class="profile__info">
               <div class="profile__header">
-                <h2 class="profile__title">Жак-Ив Кусто</h2>
-                <a href="#" class="profile__btn profile__btn_edit">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button type="submit" class="profile__btn profile__btn_edit">
                   <img src="images/edit.svg" alt="иконка редактирования" />
-                </a>
+                </button>
               </div>
               <p class="profile__subtitle">Исследователь океана</p>
             </div>
           </div>
-          <a href="#" class="profile__btn profile__btn_add">
+          <button type="submit" class="profile__btn profile__btn_add">
             <img src="images/add.svg" alt="иконка добавления" />
-          </a>
+          </button>
         </section>
         <section class="elements">
           <div class="element">
-            <img src="images/karachavsk.jpg" alt="" class="element__image" />
+            <img
+              src="images/karachavsk.jpg"
+              alt="фото церкви"
+              class="element__image"
+            />
             <div class="element__footer">
               <h3 class="element__title">Карачаево-Черкессия</h3>
-              <a href="#" class="element__btn">
+              <button type="submit" class="element__btn">
                 <img src="images/like.svg" alt="иконка для лайка" />
-              </a>
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img
+              src="images/mountin_elbrus.jpg"
+              alt="фото Эльбруса"
+              class="element__image"
+            />
+            <div class="element__footer">
+              <h3 class="element__title">Гора Эльбрус</h3>
+              <button type="submit" class="element__btn">
+                <img src="images/like.svg" alt="иконка для лайка" />
+              </button>
+            </div>
+          </div>
+          <div class="element">
+            <img src="images/dombai.jpg" alt="Домбай" class="element__image" />
+            <div class="element__footer">
+              <h3 class="element__title">Домбай</h3>
+              <button type="submit" class="element__btn">
+                <img src="images/like.svg" alt="иконка для лайка" />
+              </button>
             </div>
           </div>
           <div class="element">
@@ -55,49 +80,31 @@
             />
             <div class="element__footer">
               <h3 class="element__title">Гора Эльбрус</h3>
-              <a href="#" class="element__btn">
+              <button type="submit" class="element__btn">
                 <img src="images/like.svg" alt="иконка для лайка" />
-              </a>
+              </button>
             </div>
           </div>
           <div class="element">
-            <img src="images/dombai.jpg" alt="" class="element__image" />
+            <img src="images/dombai.jpg" alt="Домбай" class="element__image" />
             <div class="element__footer">
               <h3 class="element__title">Домбай</h3>
-              <a href="#" class="element__btn">
+              <button type="submit" class="element__btn">
                 <img src="images/like.svg" alt="иконка для лайка" />
-              </a>
+              </button>
             </div>
           </div>
           <div class="element">
             <img
-              src="images/mountin_elbrus.jpg"
-              alt=""
+              src="images/karachavsk.jpg"
+              alt="Карачаевск"
               class="element__image"
             />
-            <div class="element__footer">
-              <h3 class="element__title">Гора Эльбрус</h3>
-              <a href="#" class="element__btn">
-                <img src="images/like.svg" alt="иконка для лайка" />
-              </a>
-            </div>
-          </div>
-          <div class="element">
-            <img src="images/dombai.jpg" alt="" class="element__image" />
-            <div class="element__footer">
-              <h3 class="element__title">Домбай</h3>
-              <a href="#" class="element__btn">
-                <img src="images/like.svg" alt="иконка для лайка" />
-              </a>
-            </div>
-          </div>
-          <div class="element">
-            <img src="images/karachavsk.jpg" alt="" class="element__image" />
             <div class="element__footer">
               <h3 class="element__title">Карачаевск</h3>
-              <a href="#" class="element__btn">
+              <button type="submit" class="element__btn">
                 <img src="images/like.svg" alt="иконка для лайка" />
-              </a>
+              </button>
             </div>
           </div>
         </section>
@@ -107,15 +114,17 @@
       </footer>
     </div>
     <section class="modal">
-      <div class="modal__form">
-        <button class="modal__close-btn"></button>
+      <form action="#" class="modal__form" name="modal">
+        <button type="submit" class="modal__close-btn"></button>
         <h3 class="modal__title">Редактировать профиль</h3>
-        <input class="modal__name" value="Жак-Ив Кусто" />
-        <span class="modal__name-border"></span>
-        <input class="modal__name" value="Исследователь океана" />
-        <span class="modal__name-border"></span>
+        <input name="name" class="modal__name modal__name_name" value="" />
+        <input
+          name="subName"
+          class="modal__name modal__name_subName"
+          value=""
+        />
         <button type="submit" class="modal__save-btn">Сохранить</button>
-      </div>
+      </form>
     </section>
     <script src="scripts/index.js"></script>
   </body>

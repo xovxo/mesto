@@ -4,4 +4,6 @@
   font-family: Inter, Arial, sans-serif;
   font-size: 14px;
   line-height: 17px;
+  border-bottom: 1px solid #0000002b;
+  padding-bottom: 13px;
 }

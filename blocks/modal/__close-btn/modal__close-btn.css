@@ -6,6 +6,7 @@
   position: absolute;
   border: none;
   background-color: black;
+  transition: opacity 1s ease-out;
   padding: 0;
 }
 
@@ -21,4 +22,8 @@
     right: -41px;
     top: -41px;
   }
+}
+
+.modal__close-btn:hover {
+  opacity: 0.6;
 }

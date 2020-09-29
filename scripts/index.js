@@ -22,7 +22,7 @@ openModalBtn.addEventListener("click", toggleModal);
 
 closeModalBtn.addEventListener("click", toggleModal);
 
-saveModalBtn.addEventListener("submit", (event) => {
+formModal.addEventListener("submit", (event) => {
   event.preventDefault();
   title.textContent = inputName.value;
   subtitle.textContent = inputSub.value;

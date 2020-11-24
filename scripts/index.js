@@ -1,3 +1,62 @@
+const initialCards = [
+  {
+    name: "Архыз",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
+    alt: "фото Архыз",
+  },
+  {
+    name: "Челябинская область",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
+    alt: "фото Челябинская область",
+  },
+  {
+    name: "Иваново",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
+    alt: "фото Иваново",
+  },
+  {
+    name: "Камчатка",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
+    alt: "фото Камчатка",
+  },
+  {
+    name: "Холмогорский район",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
+    alt: "фото Холмогорский район",
+  },
+  {
+    name: "Байкал",
+    link:
+      "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
+    alt: "фото Байкал",
+  },
+];
+
+const elements = document.querySelector(".elements");
+function addTemplateElement(card) {
+  const templateElement = document
+    .querySelector(".element-template")
+    .content.cloneNode(true);
+
+  templateElement
+    .querySelector(".element__image")
+    .setAttribute("alt", card.alt);
+
+  templateElement
+    .querySelector(".element__image")
+    .setAttribute("src", card.link);
+
+  templateElement.querySelector(".element__title").textContent = card.name;
+
+  elements.append(templateElement);
+}
+
+initialCards.forEach(addTemplateElement);
 const openModalBtn = document.querySelector(".profile__btn_edit");
 const modal = document.querySelector(".modal");
 const closeModalBtn = document.querySelector(".modal__close-btn");
@@ -19,7 +78,6 @@ function toggleModal() {
 }
 
 openModalBtn.addEventListener("click", toggleModal);
-
 closeModalBtn.addEventListener("click", toggleModal);
 
 formModal.addEventListener("submit", (event) => {

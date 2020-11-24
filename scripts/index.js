@@ -70,7 +70,7 @@ const saveModalEdit = document.querySelector(".modal__save-btn-edit");
 const formModalEdit = modalEdit.querySelector(".modal__form-edit");
 
 const saveModalCreate = document.querySelector(".modal__save-btn-create");
-const formModalCreate = modalEdit.querySelector(".modal__form-create");
+const formModalCreate = modalCreate.querySelector(".modal__form-create");
 
 const inputName = modalEdit.querySelector(".modal__name_name");
 const inputSub = modalEdit.querySelector(".modal__name_subName");
@@ -106,4 +106,15 @@ formModalEdit.addEventListener("submit", (event) => {
   title.textContent = inputName.value;
   subtitle.textContent = inputSub.value;
   toggleModalEdit();
+});
+
+formModalCreate.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const card = {
+    name: inputPlaceName.value,
+    link: inputLink.value,
+    alt: "фото " + `${inputPlaceName.value}`,
+  };
+  addTemplateElement(card);
+  toggleModalCreate();
 });

@@ -40,17 +40,40 @@
         <p class="footer__copyright">&copy; Ana Volgina, 2020</p>
       </footer>
     </div>
-    <section class="modal">
-      <form action="#" class="modal__form" name="modal">
-        <button type="button" class="modal__close-btn"></button>
+    <section class="modal modal__edit">
+      <form action="#" class="modal__form modal__form-edit" name="modal">
+        <button
+          type="button"
+          class="modal__close-btn modal__close-btn-edit"
+        ></button>
         <h3 class="modal__title">Редактировать профиль</h3>
-        <input name="name" class="modal__name modal__name_name" value="" />
+        <input name="name" class="modal__name modal__name_name" />
+        <input name="subName" class="modal__name modal__name_subName" />
+        <button type="submit" class="modal__save-btn modal__save-btn-edit">
+          Сохранить
+        </button>
+      </form>
+    </section>
+    <section class="modal modal__create">
+      <form action="#" class="modal__form modal__form-create" name="modal">
+        <button
+          type="button"
+          class="modal__close-btn modal__close-btn-create"
+        ></button>
+        <h3 class="modal__title">Новое место</h3>
         <input
-          name="subName"
-          class="modal__name modal__name_subName"
-          value=""
+          name="place"
+          placeholder="Название"
+          class="modal__name modal__name_place"
         />
-        <button type="submit" class="modal__save-btn">Сохранить</button>
+        <input
+          name="link"
+          placeholder="Ссылка на картинку"
+          class="modal__name modal__name_link"
+        />
+        <button type="submit" class="modal__save-btn modal__save-btn-create">
+          Создать
+        </button>
       </form>
     </section>
     <template class="element-template">

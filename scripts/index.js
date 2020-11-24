@@ -57,32 +57,53 @@ function addTemplateElement(card) {
 }
 
 initialCards.forEach(addTemplateElement);
-const openModalBtn = document.querySelector(".profile__btn_edit");
-const modal = document.querySelector(".modal");
-const closeModalBtn = document.querySelector(".modal__close-btn");
-const saveModalBtn = document.querySelector(".modal__save-btn");
-const formModal = modal.querySelector(".modal__form");
+const openModalEdit = document.querySelector(".profile__btn_edit");
+const modalEdit = document.querySelector(".modal__edit");
 
-const inputName = modal.querySelector(".modal__name_name");
-const inputSub = modal.querySelector(".modal__name_subName");
+const openModalCreate = document.querySelector(".profile__btn_add");
+const modalCreate = document.querySelector(".modal__create");
+
+const closeModalEdit = document.querySelector(".modal__close-btn-edit");
+const closeModalCreate = document.querySelector(".modal__close-btn-create");
+
+const saveModalEdit = document.querySelector(".modal__save-btn-edit");
+const formModalEdit = modalEdit.querySelector(".modal__form-edit");
+
+const saveModalCreate = document.querySelector(".modal__save-btn-create");
+const formModalCreate = modalEdit.querySelector(".modal__form-create");
+
+const inputName = modalEdit.querySelector(".modal__name_name");
+const inputSub = modalEdit.querySelector(".modal__name_subName");
+
+const inputPlaceName = modalCreate.querySelector(".modal__name_place");
+const inputLink = modalCreate.querySelector(".modal__name_link");
 
 const title = document.querySelector(".profile__title");
 const subtitle = document.querySelector(".profile__subtitle");
 
-function toggleModal() {
-  modal.classList.toggle("modal_is-open");
-  if (modal.classList.contains("modal_is-open")) {
+function toggleModalEdit() {
+  modalEdit.classList.toggle("modal_is-open");
+  if (modalEdit.classList.contains("modal_is-open")) {
     inputName.value = title.textContent;
     inputSub.value = subtitle.textContent;
   }
 }
 
-openModalBtn.addEventListener("click", toggleModal);
-closeModalBtn.addEventListener("click", toggleModal);
+function toggleModalCreate() {
+  modalCreate.classList.toggle("modal_is-open");
+  if (modalCreate.classList.contains("modal_is-open")) {
+  }
+}
 
-formModal.addEventListener("submit", (event) => {
+openModalEdit.addEventListener("click", toggleModalEdit);
+openModalCreate.addEventListener("click", toggleModalCreate);
+
+closeModalEdit.addEventListener("click", toggleModalEdit);
+closeModalCreate.addEventListener("click", toggleModalCreate);
+
+formModalEdit.addEventListener("submit", (event) => {
   event.preventDefault();
   title.textContent = inputName.value;
   subtitle.textContent = inputSub.value;
-  toggleModal();
+  toggleModalEdit();
 });

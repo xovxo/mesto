@@ -7,6 +7,7 @@
   justify-content: center;
   transition: opacity 1s ease-out;
   background-color: black;
+  cursor: pointer;
 }
 
 .profile__btn:hover {

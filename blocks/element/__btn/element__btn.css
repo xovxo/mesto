@@ -9,6 +9,7 @@
   transition: opacity 1s ease-out;
   background-color: white;
   border: none;
+  cursor: pointer;
 }
 
 .element__btn:hover {

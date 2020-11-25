@@ -60,12 +60,20 @@ function addTemplateElement(card) {
       }
     });
 
+  templateElement
+    .querySelector(".element__btn-like")
+    .addEventListener("click", (event) => {
+      const element = event.target.closest(".element__btn-like");
+      element.classList.toggle("element__btn-like_active");
+    });
+
   templateElement.querySelector(".element__title").textContent = card.name;
 
   elements.prepend(templateElement);
 }
 
 initialCards.forEach(addTemplateElement);
+
 const openModalEdit = document.querySelector(".profile__btn_edit");
 const modalEdit = document.querySelector(".modal__edit");
 
@@ -100,8 +108,6 @@ function toggleModalEdit() {
 
 function toggleModalCreate() {
   modalCreate.classList.toggle("modal_is-open");
-  if (modalCreate.classList.contains("modal_is-open")) {
-  }
 }
 
 openModalEdit.addEventListener("click", toggleModalEdit);
@@ -128,3 +134,10 @@ formModalCreate.addEventListener("submit", (event) => {
   toggleModalCreate();
   formModalCreate.reset();
 });
+
+// const cardLike = document.querySelector(".element__btn-like");
+
+// function toggleLike() {
+//   cardLike.classList.toggle("element__btn-like_active");
+// }
+// cardLike.addEventListener("click", toggleLike);

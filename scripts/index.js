@@ -51,6 +51,15 @@ function addTemplateElement(card) {
     .querySelector(".element__image")
     .setAttribute("src", card.link);
 
+  templateElement
+    .querySelector(".element__btn-delete")
+    .addEventListener("click", (event) => {
+      const element = event.target.closest(".element");
+      if (element) {
+        element.remove();
+      }
+    });
+
   templateElement.querySelector(".element__title").textContent = card.name;
 
   elements.prepend(templateElement);

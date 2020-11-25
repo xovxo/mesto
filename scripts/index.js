@@ -89,12 +89,12 @@ function addTemplateElement(card) {
 initialCards.forEach(addTemplateElement);
 
 const openModalEdit = document.querySelector(".profile__btn_edit");
-const modalEdit = document.querySelector(".modal-edit");
+const modalEdit = document.querySelector(".modal_edit");
 
 const openModalCreate = document.querySelector(".profile__btn_add");
-const modalCreate = document.querySelector(".modal-create");
+const modalCreate = document.querySelector(".modal_create");
 
-const modalPicture = document.querySelector(".modal-picture");
+const modalPicture = document.querySelector(".modal_picture");
 
 const closeModalEdit = document.querySelector(".modal__close-btn-edit");
 const closeModalCreate = document.querySelector(".modal__close-btn-create");

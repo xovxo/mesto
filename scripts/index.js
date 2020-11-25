@@ -53,7 +53,7 @@ function addTemplateElement(card) {
 
   templateElement.querySelector(".element__title").textContent = card.name;
 
-  elements.append(templateElement);
+  elements.prepend(templateElement);
 }
 
 initialCards.forEach(addTemplateElement);
@@ -117,4 +117,5 @@ formModalCreate.addEventListener("submit", (event) => {
   };
   addTemplateElement(card);
   toggleModalCreate();
+  formModalCreate.reset();
 });

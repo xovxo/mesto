@@ -67,6 +67,20 @@ function addTemplateElement(card) {
       element.classList.toggle("element__btn-like_active");
     });
 
+  templateElement
+    .querySelector(".element__image")
+    .addEventListener("click", (event) => {
+      const element = event.target.closest(".element");
+      modalPicture.querySelector(".modal__image").src = element.querySelector(
+        ".element__image"
+      ).src;
+
+      modalPicture.querySelector(
+        ".modal__subtitle"
+      ).textContent = element.querySelector(".element__title").textContent;
+      toggleModalPicture();
+    });
+
   templateElement.querySelector(".element__title").textContent = card.name;
 
   elements.prepend(templateElement);
@@ -80,8 +94,11 @@ const modalEdit = document.querySelector(".modal__edit");
 const openModalCreate = document.querySelector(".profile__btn_add");
 const modalCreate = document.querySelector(".modal__create");
 
+const modalPicture = document.querySelector(".modal__picture");
+
 const closeModalEdit = document.querySelector(".modal__close-btn-edit");
 const closeModalCreate = document.querySelector(".modal__close-btn-create");
+const closeModalPicture = document.querySelector(".modal__close-btn-picture");
 
 const saveModalEdit = document.querySelector(".modal__save-btn-edit");
 const formModalEdit = modalEdit.querySelector(".modal__form-edit");
@@ -110,11 +127,16 @@ function toggleModalCreate() {
   modalCreate.classList.toggle("modal_is-open");
 }
 
+function toggleModalPicture() {
+  modalPicture.classList.toggle("modal_is-open");
+}
+
 openModalEdit.addEventListener("click", toggleModalEdit);
 openModalCreate.addEventListener("click", toggleModalCreate);
 
 closeModalEdit.addEventListener("click", toggleModalEdit);
 closeModalCreate.addEventListener("click", toggleModalCreate);
+closeModalPicture.addEventListener("click", toggleModalPicture);
 
 formModalEdit.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -134,10 +156,3 @@ formModalCreate.addEventListener("submit", (event) => {
   toggleModalCreate();
   formModalCreate.reset();
 });
-
-// const cardLike = document.querySelector(".element__btn-like");
-
-// function toggleLike() {
-//   cardLike.classList.toggle("element__btn-like_active");
-// }
-// cardLike.addEventListener("click", toggleLike);

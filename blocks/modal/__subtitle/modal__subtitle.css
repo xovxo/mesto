@@ -1,0 +1,9 @@
+.modal__subtitle {
+  font-family: Inter, Arial, sans-serif;
+  font-weight: 400;
+  margin: 0;
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 1);
+}

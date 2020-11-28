@@ -112,10 +112,8 @@ function toggleModal(modal) {
 
 openModalEdit.addEventListener("click", function () {
   toggleModal(modalEdit);
-  if (modalEdit.classList.contains("modal_is-open")) {
-    inputName.value = title.textContent;
-    inputSub.value = subtitle.textContent;
-  }
+  inputName.value = title.textContent;
+  inputSub.value = subtitle.textContent;
 });
 closeModalEdit.addEventListener("click", function () {
   toggleModal(modalEdit);

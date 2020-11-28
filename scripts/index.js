@@ -54,10 +54,7 @@ function addTemplateElement(card) {
   templateElement
     .querySelector(".element__btn-delete")
     .addEventListener("click", (event) => {
-      const element = event.target.closest(".element");
-      if (element) {
-        element.remove();
-      }
+      event.target.closest(".element").remove();
     });
 
   templateElement

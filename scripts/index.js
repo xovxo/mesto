@@ -43,13 +43,9 @@ function addTemplateElement(card) {
     .querySelector(".element-template")
     .content.cloneNode(true);
 
-  templateElement
-    .querySelector(".element__image")
-    .setAttribute("alt", card.alt);
-
-  templateElement
-    .querySelector(".element__image")
-    .setAttribute("src", card.link);
+  const imageElement = templateElement.querySelector(".element__image");
+  imageElement.setAttribute("alt", card.alt);
+  imageElement.setAttribute("src", card.link);
 
   templateElement
     .querySelector(".element__btn-delete")
@@ -64,19 +60,17 @@ function addTemplateElement(card) {
       element.classList.toggle("element__btn-like_active");
     });
 
-  templateElement
-    .querySelector(".element__image")
-    .addEventListener("click", (event) => {
-      const element = event.target.closest(".element");
-      modalPicture.querySelector(".modal__image").src = element.querySelector(
-        ".element__image"
-      ).src;
+  imageElement.addEventListener("click", (event) => {
+    const element = event.target.closest(".element");
+    modalPicture.querySelector(".modal__image").src = element.querySelector(
+      ".element__image"
+    ).src;
 
-      modalPicture.querySelector(
-        ".modal__subtitle"
-      ).textContent = element.querySelector(".element__title").textContent;
-      toggleModalPicture();
-    });
+    modalPicture.querySelector(
+      ".modal__subtitle"
+    ).textContent = element.querySelector(".element__title").textContent;
+    toggleModalPicture();
+  });
 
   templateElement.querySelector(".element__title").textContent = card.name;
 

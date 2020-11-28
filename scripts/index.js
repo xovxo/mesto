@@ -69,7 +69,7 @@ function addTemplateElement(card) {
     modalPicture.querySelector(
       ".modal__subtitle"
     ).textContent = element.querySelector(".element__title").textContent;
-    toggleModalPicture();
+    toggleModal(modalPicture);
   });
 
   templateElement.querySelector(".element__title").textContent = card.name;
@@ -106,34 +106,37 @@ const inputLink = modalCreate.querySelector(".modal__name_link");
 const title = document.querySelector(".profile__title");
 const subtitle = document.querySelector(".profile__subtitle");
 
-function toggleModalEdit() {
-  modalEdit.classList.toggle("modal_is-open");
+function toggleModal(modal) {
+  modal.classList.toggle("modal_is-open");
+}
+
+openModalEdit.addEventListener("click", function () {
+  toggleModal(modalEdit);
   if (modalEdit.classList.contains("modal_is-open")) {
     inputName.value = title.textContent;
     inputSub.value = subtitle.textContent;
   }
-}
+});
+closeModalEdit.addEventListener("click", function () {
+  toggleModal(modalEdit);
+});
 
-function toggleModalCreate() {
-  modalCreate.classList.toggle("modal_is-open");
-}
+openModalCreate.addEventListener("click", function () {
+  toggleModal(modalCreate);
+});
+closeModalCreate.addEventListener("click", function () {
+  toggleModal(modalCreate);
+});
 
-function toggleModalPicture() {
-  modalPicture.classList.toggle("modal_is-open");
-}
-
-openModalEdit.addEventListener("click", toggleModalEdit);
-openModalCreate.addEventListener("click", toggleModalCreate);
-
-closeModalEdit.addEventListener("click", toggleModalEdit);
-closeModalCreate.addEventListener("click", toggleModalCreate);
-closeModalPicture.addEventListener("click", toggleModalPicture);
+closeModalPicture.addEventListener("click", function () {
+  toggleModal(modalPicture);
+});
 
 formModalEdit.addEventListener("submit", (event) => {
   event.preventDefault();
   title.textContent = inputName.value;
   subtitle.textContent = inputSub.value;
-  toggleModalEdit();
+  toggleModal(modalEdit);
 });
 
 formModalCreate.addEventListener("submit", (event) => {
@@ -144,6 +147,6 @@ formModalCreate.addEventListener("submit", (event) => {
     alt: "фото " + `${inputPlaceName.value}`,
   };
   addTemplateElement(card);
-  toggleModalCreate();
+  toggleModal(modalCreate);
   formModalCreate.reset();
 });

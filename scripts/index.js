@@ -38,6 +38,7 @@ const initialCards = [
 ];
 
 const elements = document.querySelector(".elements");
+
 function addTemplateElement(card) {
   const templateElement = document
     .querySelector(".element-template")
@@ -73,11 +74,18 @@ function addTemplateElement(card) {
   });
 
   templateElement.querySelector(".element__title").textContent = card.name;
+  return templateElement;
+}
 
+const templateElement = document.querySelector(".element-template");
+
+function addElement(elements, templateElement) {
   elements.prepend(templateElement);
 }
 
-initialCards.forEach(addTemplateElement);
+initialCards.forEach((templateElement) =>
+  addElement(elements, addTemplateElement(templateElement))
+);
 
 const openModalEdit = document.querySelector(".profile__btn_edit");
 const modalEdit = document.querySelector(".modal-edit");
@@ -144,7 +152,7 @@ formModalCreate.addEventListener("submit", (event) => {
     link: inputLink.value,
     alt: "фото " + `${inputPlaceName.value}`,
   };
-  addTemplateElement(card);
+  addElement(elements, addTemplateElement(card));
   toggleModal(modalCreate);
   formModalCreate.reset();
 });

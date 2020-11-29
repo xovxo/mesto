@@ -116,13 +116,24 @@ const subtitle = document.querySelector(".profile__subtitle");
 
 function toggleModal(modal) {
   modal.classList.toggle("modal_is-open");
+  if (modal.classList.contains("modal_is-open")) {
+    document.addEventListener("keydown", modalCloseByEsc);
+  } else document.removeEventListener("keydown", modalCloseByEsc);
 }
+
+const modalCloseByEsc = (evt) => {
+  if (evt.key === "Escape") {
+    const modal = document.querySelector(".modal_is-open");
+    toggleModal(modal);
+  }
+};
 
 openModalEdit.addEventListener("click", function () {
   toggleModal(modalEdit);
   inputName.value = title.textContent;
   inputSub.value = subtitle.textContent;
 });
+
 closeModalEdit.addEventListener("click", function () {
   toggleModal(modalEdit);
 });

@@ -167,3 +167,22 @@ formModalCreate.addEventListener("submit", (event) => {
   toggleModal(modalCreate);
   formModalCreate.reset();
 });
+
+function ModalCloseHandlers() {
+  const modalList = Array.from(document.querySelectorAll(".modal"));
+
+  modalList.forEach((modalElement) => {
+    modalElement.addEventListener("click", (event) => {
+      const eventTarget = event.target;
+
+      if (
+        eventTarget.classList.contains("modal") ||
+        eventTarget.classList.contains("modal__close-btn")
+      ) {
+        toggleModal(modalElement);
+      }
+    });
+  });
+}
+
+ModalCloseHandlers();

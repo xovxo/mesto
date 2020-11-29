@@ -121,8 +121,8 @@ function toggleModal(modal) {
   } else document.removeEventListener("keydown", modalCloseByEsc);
 }
 
-const modalCloseByEsc = (evt) => {
-  if (evt.key === "Escape") {
+const modalCloseByEsc = (event) => {
+  if (event.key === "Escape") {
     const modal = document.querySelector(".modal_is-open");
     toggleModal(modal);
   }

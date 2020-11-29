@@ -116,6 +116,7 @@ const subtitle = document.querySelector(".profile__subtitle");
 
 function toggleModal(modal) {
   modal.classList.toggle("modal_is-open");
+  console.log(modal.classList.contains("modal_is-open"));
   if (modal.classList.contains("modal_is-open")) {
     document.addEventListener("keydown", modalCloseByEsc);
   } else document.removeEventListener("keydown", modalCloseByEsc);
@@ -135,6 +136,7 @@ openModalEdit.addEventListener("click", function () {
 });
 
 closeModalEdit.addEventListener("click", function () {
+  console.log("ok!");
   toggleModal(modalEdit);
 });
 
@@ -174,11 +176,7 @@ function ModalCloseHandlers() {
   modalList.forEach((modalElement) => {
     modalElement.addEventListener("click", (event) => {
       const eventTarget = event.target;
-
-      if (
-        eventTarget.classList.contains("modal") ||
-        eventTarget.classList.contains("modal__close-btn")
-      ) {
+      if (eventTarget.classList.contains("modal")) {
         toggleModal(modalElement);
       }
     });

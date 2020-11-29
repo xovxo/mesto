@@ -116,7 +116,6 @@ const subtitle = document.querySelector(".profile__subtitle");
 
 function toggleModal(modal) {
   modal.classList.toggle("modal_is-open");
-  console.log(modal.classList.contains("modal_is-open"));
   if (modal.classList.contains("modal_is-open")) {
     document.addEventListener("keydown", modalCloseByEsc);
   } else document.removeEventListener("keydown", modalCloseByEsc);

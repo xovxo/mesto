@@ -1,0 +1,13 @@
+.modal__save-btn_disabled {
+  background: white;
+  color: #e5e5e5;
+  border: 1px solid #e5e5e5;
+}
+
+@media screen and (max-width: 767px) {
+  .modal__save-btn_disabled {
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

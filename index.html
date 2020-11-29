@@ -47,8 +47,26 @@
           class="modal__close-btn modal__close-btn-edit"
         ></button>
         <h3 class="modal__title">Редактировать профиль</h3>
-        <input name="name" class="modal__name modal__name_name" />
-        <input name="subName" class="modal__name modal__name_subName" />
+        <input
+          name="name"
+          class="modal__name modal__name_name"
+          type="text"
+          required
+          minlength="2"
+          maxlength="40"
+          id="name-title"
+        />
+        <span class="error" id="name-title-error"></span>
+        <input
+          name="subName"
+          class="modal__name modal__name_subName"
+          type="text"
+          required
+          minlength="2"
+          maxlength="200"
+          id="name-subTitle"
+        />
+        <span class="error" id="name-subTitle-error"></span>
         <button type="submit" class="modal__save-btn modal__save-btn-edit">
           Сохранить
         </button>
@@ -65,12 +83,22 @@
           name="place"
           placeholder="Название"
           class="modal__name modal__name_place"
+          type="text"
+          required
+          minlength="2"
+          maxlength="30"
+          id="name-place"
         />
+        <span class="error" id="name-place-error"></span>
         <input
           name="link"
           placeholder="Ссылка на картинку"
           class="modal__name modal__name_link"
+          type="url"
+          required
+          id="name-link"
         />
+        <span class="error" id="name-link-error"></span>
         <button type="submit" class="modal__save-btn modal__save-btn-create">
           Создать
         </button>
@@ -104,5 +132,6 @@
       </div>
     </template>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>

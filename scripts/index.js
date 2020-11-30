@@ -1,3 +1,18 @@
+const elements = document.querySelector(".elements");
+const openModalEditButton = document.querySelector(".profile__btn_edit");
+const modalEdit = document.querySelector(".modal-edit");
+const openModalCreateButton = document.querySelector(".profile__btn_add");
+const modalCreate = document.querySelector(".modal-create");
+const modalPicture = document.querySelector(".modal-picture");
+const formModalEdit = modalEdit.querySelector(".modal__form-edit");
+const formModalCreate = modalCreate.querySelector(".modal__form-create");
+const inputName = modalEdit.querySelector(".modal__name_name");
+const inputSub = modalEdit.querySelector(".modal__name_subName");
+const inputPlaceName = modalCreate.querySelector(".modal__name_place");
+const inputLink = modalCreate.querySelector(".modal__name_link");
+const title = document.querySelector(".profile__title");
+const subtitle = document.querySelector(".profile__subtitle");
+const templateElement = document.querySelector(".element-template");
 const initialCards = [
   {
     name: "Архыз",
@@ -37,82 +52,45 @@ const initialCards = [
   },
 ];
 
-const elements = document.querySelector(".elements");
+function createCard(card) {
+  const modalPicture = document.querySelector(".modal-picture");
+  const modalPicImage = modalPicture.querySelector(".modal__image");
+  const modalPicTitle = modalPicture.querySelector(".modal__subtitle");
+  const cardElement = templateElement.content.cloneNode(true);
 
-function addTemplateElement(card) {
-  const templateElement = document
-    .querySelector(".element-template")
-    .content.cloneNode(true);
-
-  const imageElement = templateElement.querySelector(".element__image");
+  const imageElement = cardElement.querySelector(".element__image");
   imageElement.setAttribute("alt", card.alt);
   imageElement.setAttribute("src", card.link);
 
-  templateElement
+  cardElement
     .querySelector(".element__btn-delete")
     .addEventListener("click", (event) => {
       event.target.closest(".element").remove();
     });
 
-  templateElement
+  cardElement
     .querySelector(".element__btn-like")
     .addEventListener("click", (event) => {
-      const element = event.target.closest(".element__btn-like");
-      element.classList.toggle("element__btn-like_active");
+      event.target.classList.toggle("element__btn-like_active");
     });
 
-  imageElement.addEventListener("click", (event) => {
-    const element = event.target.closest(".element");
-    modalPicture.querySelector(".modal__image").src = element.querySelector(
-      ".element__image"
-    ).src;
-
-    modalPicture.querySelector(
-      ".modal__subtitle"
-    ).textContent = element.querySelector(".element__title").textContent;
+  imageElement.addEventListener("click", () => {
+    modalPicImage.src = card.link;
+    modalPicTitle.textContent = card.name;
     toggleModal(modalPicture);
   });
 
-  templateElement.querySelector(".element__title").textContent = card.name;
-  return templateElement;
+  cardElement.querySelector(".element__title").textContent = card.name;
+  return cardElement;
 }
 
-const templateElement = document.querySelector(".element-template");
-
-function addElement(elements, templateElement) {
-  elements.prepend(templateElement);
+function addElement(elements, cardElement) {
+  elements.prepend(cardElement);
 }
 
-initialCards.forEach((templateElement) =>
-  addElement(elements, addTemplateElement(templateElement))
+initialCards.forEach((cardElement) =>
+  addElement(elements, createCard(cardElement))
 );
-
-const openModalEdit = document.querySelector(".profile__btn_edit");
-const modalEdit = document.querySelector(".modal-edit");
-
-const openModalCreate = document.querySelector(".profile__btn_add");
-const modalCreate = document.querySelector(".modal-create");
-
-const modalPicture = document.querySelector(".modal-picture");
-
-const closeModalEdit = document.querySelector(".modal__close-btn-edit");
-const closeModalCreate = document.querySelector(".modal__close-btn-create");
-const closeModalPicture = document.querySelector(".modal__close-btn-picture");
-
-const saveModalEdit = document.querySelector(".modal__save-btn-edit");
-const formModalEdit = modalEdit.querySelector(".modal__form-edit");
-
-const saveModalCreate = document.querySelector(".modal__save-btn-create");
-const formModalCreate = modalCreate.querySelector(".modal__form-create");
-
-const inputName = modalEdit.querySelector(".modal__name_name");
-const inputSub = modalEdit.querySelector(".modal__name_subName");
-
-const inputPlaceName = modalCreate.querySelector(".modal__name_place");
-const inputLink = modalCreate.querySelector(".modal__name_link");
-
-const title = document.querySelector(".profile__title");
-const subtitle = document.querySelector(".profile__subtitle");
 
 function toggleModal(modal) {
   modal.classList.toggle("modal_is-open");
@@ -128,26 +106,16 @@ const modalCloseByEsc = (event) => {
   }
 };
 
-openModalEdit.addEventListener("click", function () {
+openModalEditButton.addEventListener("click", function () {
   toggleModal(modalEdit);
+
   inputName.value = title.textContent;
   inputSub.value = subtitle.textContent;
 });
 
-closeModalEdit.addEventListener("click", function () {
-  console.log("ok!");
-  toggleModal(modalEdit);
-});
-
-openModalCreate.addEventListener("click", function () {
+openModalCreateButton.addEventListener("click", function () {
   toggleModal(modalCreate);
-});
-closeModalCreate.addEventListener("click", function () {
-  toggleModal(modalCreate);
-});
-
-closeModalPicture.addEventListener("click", function () {
-  toggleModal(modalPicture);
+  formModalCreate.reset();
 });
 
 formModalEdit.addEventListener("submit", (event) => {
@@ -164,22 +132,25 @@ formModalCreate.addEventListener("submit", (event) => {
     link: inputLink.value,
     alt: "фото " + `${inputPlaceName.value}`,
   };
-  addElement(elements, addTemplateElement(card));
+  addElement(elements, createCard(card));
   toggleModal(modalCreate);
   formModalCreate.reset();
 });
 
-function ModalCloseHandlers() {
+function modalCloseHandlers() {
   const modalList = Array.from(document.querySelectorAll(".modal"));
 
   modalList.forEach((modalElement) => {
     modalElement.addEventListener("click", (event) => {
       const eventTarget = event.target;
-      if (eventTarget.classList.contains("modal")) {
+      if (
+        eventTarget.classList.contains("modal") ||
+        eventTarget.classList.contains("modal__close-btn")
+      ) {
         toggleModal(modalElement);
       }
     });
   });
 }
 
-ModalCloseHandlers();
+modalCloseHandlers();

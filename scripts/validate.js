@@ -18,7 +18,7 @@ function checkInputValidity(form, input, config) {
   }
 }
 
-function setBtnState(btn, isActive, config) {
+function setButtonState(btn, isActive, config) {
   if (isActive) {
     btn.classList.remove(config.buttonInvalidClass);
     btn.disabled = false;
@@ -29,12 +29,12 @@ function setBtnState(btn, isActive, config) {
 }
 
 function setEventListener(form, config) {
-  const inputListEdit = form.querySelectorAll(config.inputSelector);
-  const editSaveBtn = form.querySelector(config.submitButtonSelector);
-  inputListEdit.forEach((input) => {
+  const inputList = form.querySelectorAll(config.inputSelector);
+  const submitButton = form.querySelector(config.submitButtonSelector);
+  inputList.forEach((input) => {
     input.addEventListener("input", () => {
       checkInputValidity(form, input, config);
-      setBtnState(editSaveBtn, form.checkValidity(), config);
+      setButtonState(submitButton, form.checkValidity(), config);
     });
   });
 }
@@ -46,6 +46,8 @@ function enableValidation(config) {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
     });
+    const submitButton = form.querySelector(config.submitButtonSelector);
+    setButtonState(submitButton, form.checkValidity(), config);
   });
 }
 

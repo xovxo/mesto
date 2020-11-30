@@ -13,6 +13,8 @@ const inputLink = modalCreate.querySelector(".modal__name_link");
 const title = document.querySelector(".profile__title");
 const subtitle = document.querySelector(".profile__subtitle");
 const templateElement = document.querySelector(".element-template");
+const modalPicImage = modalPicture.querySelector(".modal__image");
+const modalPicTitle = modalPicture.querySelector(".modal__subtitle");
 const initialCards = [
   {
     name: "Архыз",
@@ -53,11 +55,7 @@ const initialCards = [
 ];
 
 function createCard(card) {
-  const modalPicture = document.querySelector(".modal-picture");
-  const modalPicImage = modalPicture.querySelector(".modal__image");
-  const modalPicTitle = modalPicture.querySelector(".modal__subtitle");
   const cardElement = templateElement.content.cloneNode(true);
-
   const imageElement = cardElement.querySelector(".element__image");
   imageElement.setAttribute("alt", card.alt);
   imageElement.setAttribute("src", card.link);
